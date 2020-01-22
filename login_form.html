@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <!-- No elements in body -->
+
+
+    <script>
+        // body ye css özellikleri eklendi
+        document.body.style.margin = '100px 700px';
+        document.body.style.height = '%50';
+        document.body.style.width = '%50';
+        document.body.style.fontFamily = 'Arial';
+        document.title = 'Login Form';
+
+
+        // h tag i olusturuldu.
+
+        document.body.onload = () => {
+
+
+            // div elementi olusturuldu.
+
+            var divElem = document.createElement('div');
+            divElem.id = 'div1';
+            divElem.style.width = '450px';
+            divElem.style.height = '300px';
+            divElem.style.background = 'lightblue';
+            divElem.style.display = 'flex';
+            divElem.style.flexDirection = 'column';
+            divElem.style.alignItems = 'center';
+            divElem.style.justifyContent = 'center';
+            document.body.appendChild(divElem);
+
+            var h2El = document.createElement('h2');
+            h2El.innerHTML = "Lütfen Kullanici Adi ve Sifrenizi Giriniz.";
+            document.getElementById('div1').appendChild(h2El);
+
+
+            // input elementleri olusturuldu.
+
+
+            var inputUserName = document.createElement('input');
+            inputUserName.id = 'input1';
+            inputUserName.type = 'text';
+            inputUserName.placeholder = 'Kullanici Adi';
+            inputUserName.style.width = '250px';
+            inputUserName.style.padding = '10px';
+            inputUserName.style.margin = '25px';
+            inputUserName.style.fontsize = '13px';
+            inputUserName.style.display = 'block';
+            document.getElementById('div1').appendChild(inputUserName);
+
+            var inputPassword = document.createElement('input');
+            inputPassword.id = 'input2';
+            inputPassword.type = 'password';
+            inputPassword.setAttribute('onchange', 'takeValue(this)');
+            inputPassword.placeholder = 'Sifre';
+            inputPassword.style.width = '250px';
+            inputPassword.style.padding = '10px';
+            inputPassword.style.margin = '25px';
+            inputPassword.style.fontsize = '13px';
+            inputPassword.style.display = 'block';
+            document.getElementById('div1').appendChild(inputPassword);
+
+
+
+            var inputSubmit = document.createElement('input');
+            inputSubmit.type = 'submit';
+            inputSubmit.id = 'input3';
+            inputSubmit.style.width = '250px';
+            inputSubmit.style.padding = '10px';
+            inputSubmit.style.margin = '25px';
+            inputSubmit.style.fontsize = '13px';
+            inputSubmit.style.display = 'block';
+            inputSubmit.setAttribute('onchange', 'getValue()');
+            document.getElementById('div1').appendChild(inputSubmit);
+
+
+
+        }
+
+        var divElem2 = document.createElement('div');
+        divElem2.id = 'div2';
+        divElem2.style.width = '400px';
+        divElem2.style.height = '300px';
+        document.body.style.fontsize = '100px'
+        divElem2.style.background = 'lightgreen';
+        divElem2.style.padding = '50px auto';
+        divElem2.style.transform = 'translateX(-1500px)';
+        divElem2.style.transition = 'all 0.5s linear';
+        document.body.appendChild(divElem2);
+
+        var divH1 = document.createElement('h1');
+        divH1.innerHTML = 'Hosgeldiniz...';
+        divH1.style.paddingTop = '120px '
+        divH1.style.display = 'flex';
+        divH1.style.flexDirection = 'column';
+        divH1.style.alignItems = 'center';
+        divH1.style.justifyContent = 'center';
+        document.getElementById('div2').appendChild(divH1);
+
+
+
+
+        // scope degiskeni olarak tanimlandi
+        var UserNameValue;
+        var PassWordValue;
+
+
+        function takeValue(e) {
+            UserNameValue = e.value;
+            PassWordValue = e.value;
+            if (UserNameValue && PassWordValue == 'admin') {
+                showDiv2()
+            } else {
+                alert('Kullanici Bilgileriniz Yanlis ,Tekrar Deneyiniz...')
+
+            }
+            // inputlari temizleyelim
+            document.getElementById('input1').value = '';
+            document.getElementById('input2').value = '';
+        }
+
+        function showDiv2() {
+            document.getElementById('div2').style.transform = 'translateX(0)';
+            document.getElementById('div1').style.transform = 'translateX(-1500px)'
+        }
+    </script>
+
+</body>
+
+</html>
